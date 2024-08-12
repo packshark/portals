@@ -8,7 +8,7 @@ st.sidebar.header("Customer Portal")
 st.sidebar.header("Operations Portal")
 
 # table Rithik shared -- though we might not need this once we have the Power BI table and can do everything through there
-table = pd.read("https://github.com/packshark/portals/blob/main/fake_dns_log.csv")
+table = pd.DataFrame(pd.read_csv("https://github.com/packshark/portals/blob/main/fake_dns_log.csv"))
 st.table(table)
 
 # Power BI table
