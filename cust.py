@@ -7,12 +7,8 @@ st.markdown("Customer Portal")
 st.sidebar.header("Customer Portal")
 st.sidebar.header("Operations Portal")
 
-# add filters
-# sample table until we have the data
-table = pd.DataFrame({"User": ["Stephanie","Jeremy","Nathaniel","Christiana","Rithik"],
-                      "Device": ["Mobile","Desktop","Tablet","Watch","TV"],
-                      "Blocked_Domains": ["https://blahblah.com","hahahahah.com","https://fkshdfkjsfhks.com","https://fafsa.gov","bing.com"],
-                      "Count":[20,5,2,4,5]})
+# table Rithik shared -- though we might not need this once we have the Power BI table and can do everything through there
+table = pd.read("https://github.com/packshark/portals/blob/main/fake_dns_log.csv")
 st.table(table)
 
 # Power BI table
