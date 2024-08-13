@@ -2,7 +2,7 @@
 
 import streamlit as st
 from navigation import make_sidebar
-from streamlit_extras.switch_page_button import switch_page
+import switch_page
 
 # Ensure session state is initialized
 # if "logged_in" not in st.session_state:
