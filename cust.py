@@ -25,7 +25,7 @@ if submit_button:
 if form_submitted:
     if username == "phone" and password == "hellokitty":
         # st.session_state.logged_in = True
-        st.success("Logged in successfully!")
+        #st.success("Logged in successfully!")
         # st.experimental_rerun()  # Reload the page to reflect the login state
         st.switch_page("workingcopy.py") #st.switch_page should work with updating the session state
     elif username == "laptop" and password == "chamberofsecrets":
