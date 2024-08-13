@@ -1,43 +1,19 @@
-# putting original code here
+# making a copy here to avoid making apps for other pages, will test login code on cust.py so my working code is here
 
 import streamlit as st
-from navigation import make_sidebar
+import pandas as pd
+import streamlit.components.v1 as components
 
-# Ensure session state is initialized
-# if "logged_in" not in st.session_state:
-    # st.session_state.logged_in = False
+st.title("Customer Portal")
+st.markdown("Customer Portal")
+st.sidebar.header("Customer Portal")
+st.sidebar.header("Operations Portal")
 
-# Sidebar for navigation
-# make_sidebar()
+# table Rithik shared -- though we might not need this once we have the Power BI table and can do everything through there
+data = pd.read_csv("fake_dns_log.csv")
+st.dataframe(data)
 
-# Main content
-st.title("Welcome to the Packing Portal")
-st.write("Please log in to continue")
+# Power BI table
+# do we want to upload and reflect anything?
+components.iframe("https://app.powerbi.com/reportEmbed?reportId=c2d0d27d-4aab-4cb8-94ab-f793dade383c&autoAuth=true&ctid=e741d71c-c6b6-47b0-803c-0f3b32b07556", height =600, width = 800)
 
-# Display login form
-with st.form("login_form"):
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
-    submit_button = st.form_submit_button('Submit')
-
-if submit_button:
-    form_submitted = True
-if form_submitted:
-    if username == "phone" and password == "hellokitty":
-        # st.session_state.logged_in = True
-        st.success("Logged in successfully!")
-        # st.switch_page("workingcopy.py") #st.switch_page should work with updating the session state
-        st.session_state['page'] = 'workingcopy.py'
-        st.experimental_rerun()  # Reload the page to reflect the login state
-    elif username == "laptop" and password == "chamberofsecrets":
-        # st.session_state.logged_in = True
-        st.success("Logged in successfully!")
-        #st.experimental_rerun()  # Reload the page to reflect the login state
-        st.switch_page("operations.py")
-    elif username == "hehe" and password == "helloworld":
-        # st.session_state.logged_in = True
-        st.success("Logged in successfully!")
-        #st.experimental_rerun()  # Reload the page to reflect the login state
-        st.switch_page("basicUser.py")
-    else:
-        st.error("Incorrect username or password")
