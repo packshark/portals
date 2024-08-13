@@ -2,7 +2,6 @@
 
 import streamlit as st
 from navigation import make_sidebar
-import switch_page
 
 # Ensure session state is initialized
 # if "logged_in" not in st.session_state:
@@ -22,20 +21,22 @@ with st.form("login_form"):
     submit_button = st.form_submit_button('Submit')
 
 if submit_button:
+    form_submitted = True
+if form_submitted:
     if username == "phone" and password == "hellokitty":
         # st.session_state.logged_in = True
         st.success("Logged in successfully!")
         # st.experimental_rerun()  # Reload the page to reflect the login state
-        switch_page("workingcopy.py") #st.switch_page is throwing an error so trying the extra instead
+        st.switch_page("workingcopy.py") #st.switch_page should work with updating the session state
     elif username == "laptop" and password == "chamberofsecrets":
         # st.session_state.logged_in = True
         st.success("Logged in successfully!")
         #st.experimental_rerun()  # Reload the page to reflect the login state
-        switch_page("operations.py")
+        st.switch_page("operations.py")
     elif username == "hehe" and password == "helloworld":
         # st.session_state.logged_in = True
         st.success("Logged in successfully!")
         #st.experimental_rerun()  # Reload the page to reflect the login state
-        switch_page("basicUser.py")
+        st.switch_page("basicUser.py")
     else:
         st.error("Incorrect username or password")
