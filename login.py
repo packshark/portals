@@ -6,7 +6,7 @@ make_sidebar()
 
 st.title("Welcome to the Packing Portal")
 
-st.write("Please log in to continue (username `test`, password `test`).")
+st.write("Please log in to continue")
 
 username = st.text_input("Username")
 password = st.text_input("Password", type="password")
