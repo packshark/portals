@@ -22,6 +22,11 @@ if st.button("Log in", type="primary"):
         st.success("Logged in successfully!")
         sleep(0.5)
       # should show filtered views, so take them to different pages and tables
-        st.switch_page("cust.py")
+        st.switch_page("operations.py")
+    elif username == "hehe" and password == "helloworld":
+        st.session_state.logged_in = True
+        st.success("Logged in successfully!")
+        sleep(0.5)
+        st.switch_page("basicUser.py")
     else:
         st.error("Incorrect username or password")
