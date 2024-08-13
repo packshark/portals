@@ -26,7 +26,7 @@ if submit_button:
         # st.session_state.logged_in = True
         st.success("Logged in successfully!")
         # st.experimental_rerun()  # Reload the page to reflect the login state
-        switch_page("cust.py") #st.switch_page is throwing an error so trying the extra instead
+        switch_page("workingcopy.py") #st.switch_page is throwing an error so trying the extra instead
     elif username == "laptop" and password == "chamberofsecrets":
         # st.session_state.logged_in = True
         st.success("Logged in successfully!")
