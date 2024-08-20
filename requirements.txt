@@ -1,1 +1,10 @@
 streamlit
+numpy
+torch
+Pillow
+streamlit
+streamlit_float
+python-doctr
+doctr
+opencv-contrib-python
+opencv-python-headless==4.5.4.60
