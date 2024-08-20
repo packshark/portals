@@ -1,5 +1,6 @@
 import streamlit as st
 from navigation import make_sidebar
+import sys
 
 # Ensure session state is initialized
 # if "logged_in" not in st.session_state:
@@ -20,6 +21,8 @@ with st.form("login_form"):
 
 if submit_button:
     form_submitted = True
+else:
+    form_submitted = False
 if form_submitted:
     if username == "phone" and password == "hellokitty":
         # st.session_state.logged_in = True
