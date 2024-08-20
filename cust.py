@@ -1,5 +1,6 @@
 import streamlit as st
 from navigation import make_sidebar
+import sys
 
 # Ensure session state is initialized
 # if "logged_in" not in st.session_state:
