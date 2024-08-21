@@ -1,20 +1,21 @@
-# a user that does not have access to see everything
 import streamlit as st
-import pandas as pd
-from io import StringIO
 
-st.title("Uploading Files")
-st.subheader("You have reached this page due to your current access permissions")
-st.markdown("---")
+# Main content
+st.title("Welcome to the Packing Portal")
+st.write("Please log in to continue")
 
-uploaded_files = st.file_uploader(
-    "Choose a CSV file", accept_multiple_files=True
-)
+# Display login form
+with st.form("login_form"):
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+    submit_button = st.form_submit_button('Submit')
 
-# edit this later -- how do we want to design this?
-for uploaded_file in uploaded_files:
-    bytes_data = uploaded_file.read()
-    st.write("filename:", uploaded_file.name)
-    st.write(bytes_data)
-
-# later want to pass this to powerBI
+if submit_button:
+    if username == "phone" and password == "hellokitty":
+        st.switch_page("pages/workingcopy.py")
+    elif username == "laptop" and password == "chamberofsecrets":
+        st.switch_page("pages/operations.py")
+    elif username == "hehe" and password == "helloworld":
+        st.switch_page("pages/basicUser.py")
+    else:
+        st.error("Incorrect username or password")
