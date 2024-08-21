@@ -12,10 +12,20 @@ with st.form("login_form"):
     password = st.text_input("Password", type="password")
     submit_button = st.form_submit_button('Submit')
 
+# Get the current path of the main file
+current_path = pathlib.Path(__file__)
+
+# Get the directory of the current path
+current_dir = os.path.dirname(current_path)
+
+# Change the destination URL to '/mount/src/portals/pages/cust.py'
+new_path = os.path.join(current_dir, 'pages', 'cust.py')
+
 if submit_button:
     if username == "phone" and password == "hellokitty":
-        url = "https://customerport.streamlit.app/"
-        st.markdown(f"[Right click to open in a new tab then close this]({{url}})")
+        #url = "https://customerport.streamlit.app/"
+        #st.markdown(f"[Right click to open in a new tab then close this]({{url}})")
+        st.switch_page(new_path)
     elif username == "laptop" and password == "chamberofsecrets":
         st.switch_page("../pages/operations.py")
     elif username == "hehe" and password == "helloworld":
@@ -23,10 +33,3 @@ if submit_button:
     else:
         st.error("Incorrect username or password")
 
-
-
-# Get the current path of the main file
-current_path = pathlib.Path(__file__)
-
-# Print the current path to the Streamlit app
-st.write(f"Current path of the main file: {current_path}")
