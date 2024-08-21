@@ -1,4 +1,5 @@
 import streamlit as st
+import os
 
 # Main content
 st.title("Welcome to the Packing Portal")
