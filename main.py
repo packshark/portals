@@ -16,7 +16,7 @@ if submit_button:
         url = "https://customerport.streamlit.app/"
         st.markdown(f"[Right click to open in a new tab then close this]({{url}})")
     elif username == "laptop" and password == "chamberofsecrets":
-        st.switch_page("./pages/operations.py")
+        st.switch_page("../pages/operations.py")
     elif username == "hehe" and password == "helloworld":
         st.switch_page(".pages/basicUser.py")
     else:
