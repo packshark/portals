@@ -14,7 +14,7 @@ if submit_button:
     if username == "phone" and password == "hellokitty":
         path = os.path.relpath("pages/cust.py")
         st.switch_page(str(path))
-st.page_link(str(path))
+        st.page_link(str(path))
     elif username == "laptop" and password == "chamberofsecrets":
         st.switch_page("pages/operations.py")
     elif username == "hehe" and password == "helloworld":
