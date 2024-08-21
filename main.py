@@ -1,5 +1,7 @@
 # a user that does not have access to see everything
 import streamlit as st
+import pandas as pd
+from io import StringIO
 
 st.title("Uploading Files")
 st.subheader("You have reached this page due to your current access permissions")
