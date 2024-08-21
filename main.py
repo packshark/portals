@@ -12,10 +12,10 @@ with st.form("login_form"):
 
 if submit_button:
     if username == "phone" and password == "hellokitty":
-        st.switch_page("pages/workingcopy.py")
+        st.switch_page("main/workingcopy.py")
     elif username == "laptop" and password == "chamberofsecrets":
-        st.switch_page("pages/operations.py")
+        st.switch_page("main/operations.py")
     elif username == "hehe" and password == "helloworld":
-        st.switch_page("pages/basicUser.py")
+        st.switch_page("main/basicUser.py")
     else:
         st.error("Incorrect username or password")
