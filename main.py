@@ -1,5 +1,6 @@
 import streamlit as st
 import os
+import pathlib
 
 # Main content
 st.title("Welcome to the Packing Portal")
@@ -21,3 +22,11 @@ if submit_button:
         st.switch_page(".pages/basicUser.py")
     else:
         st.error("Incorrect username or password")
+
+
+
+# Get the current path of the main file
+current_path = pathlib.Path(__file__)
+
+# Print the current path to the Streamlit app
+st.write(f"Current path of the main file: {current_path}")
