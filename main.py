@@ -14,7 +14,7 @@ with st.form("login_form"):
 if submit_button:
     if username == "phone" and password == "hellokitty":
         url = "https://customerport.streamlit.app/"
-        st.markdown(f'<meta http-equiv="refresh" content="0; URL={url}">', unsafe_allow_html=True)
+        st.markdown(f"[Right click to open in a new tab then close this]({{url}})")
     elif username == "laptop" and password == "chamberofsecrets":
         st.switch_page("pages/operations.py")
     elif username == "hehe" and password == "helloworld":
