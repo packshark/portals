@@ -1,8 +1,2 @@
 streamlit==1.37.0
 streamlit-option-menu
-about
-login
-admin
-basicUser
-cust
-home
