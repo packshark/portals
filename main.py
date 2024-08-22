@@ -1,38 +1,59 @@
 import streamlit as st
-import os
-import pathlib
+from streamlit_option_menu import option_menu
+import about, login, admin, basicUser, cust, home
 
-# Get the current path of the main file
-current_path = pathlib.Path(__file__)
+page_title = "Portal"
 
-# Get the directory of the current path
-current_dir = os.path.dirname(current_path)
+class MultiApp:
+    def __init__(self):
+        self.apps = []
 
-# Change the destination URL to '/mount/src/portals/pages/cust.py'
-new_path = os.path.join(current_dir, 'pages', 'cust.py')
-st.write(current_path)
-st.write(current_dir)
-st.write(new_path)
+    def add_app(self, title, function):
+        self.apps.append({
+            "title": title,
+            "function": function
+        })
 
-# Main content
-st.title("Welcome to the Packing Portal")
-st.write("Please log in to continue")
+    def run(self):
+        with st.sidebar:
+            app = option_menu(
+                menu_title='Portal',
+                options=['Home', 'About', 'Account'],
+                icons=['house-fill', 'chat-fill', 'person-circle'],
+                menu_icon='chat-text-fill',
+                default_index=0,
+                styles={
+                    "container": {"padding": "5!important", "background-color": "black"},
+                    "icon": {"color": "white", "font-size": "23px"},
+                    "nav-link": {"color": "white", "font-size": "20px", "text-align": "left", "margin": "0px"},
+                    "nav-link-selected": {"background-color": "#02ab21"},
+                },
+                key="main_menu"  # Add a unique key here
+            )
 
-# Display login form
-with st.form("login_form"):
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
-    submit_button = st.form_submit_button('Submit')
+        if app == 'Home':
+            home.app()
+        elif app == 'About':        
+            about.app()
+        elif app == 'Account':
+            login.app()
+        elif app == 'Basic':
+            basicUser.app()
+        elif app == 'Admin':
+            admin.app()
+        elif app == 'Cust':
+            cust.app()
 
-if submit_button:
-    if username == "phone" and password == "hellokitty":
-        #url = "https://customerport.streamlit.app/"
-        #st.markdown(f"[Right click to open in a new tab then close this]({{url}})")
-        st.switch_page(new_path)
-    elif username == "laptop" and password == "chamberofsecrets":
-        st.switch_page("../pages/operations.py")
-    elif username == "hehe" and password == "helloworld":
-        st.switch_page(".pages/basicUser.py")
-    else:
-        st.error("Incorrect username or password")
+# Create an instance of the MultiApp class
+app = MultiApp()
 
+# Add all your applications here
+app.add_app('Home', home.app)
+app.add_app('About', about.app)
+app.add_app('Account', login.app)
+app.add_app('Basic', basicUser.app)
+app.add_app('Customer', cust.app)
+app.add_app('Admin', admin.app)
+
+# Run the main app
+app.run()
